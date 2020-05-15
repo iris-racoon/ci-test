@@ -1,5 +1,5 @@
 
-[![Build Status](http://35.232.32.82/api/badges/iris-racoon/droneci-test/status.svg)](http://35.232.32.82/iris-racoon/droneci-test)
+[![Build Status](http://35.232.32.82/api/badges/iris-racoon/droneci-test/status.svg?ref=refs/heads/drone-ci)](http://35.232.32.82/iris-racoon/droneci-test)
 
 # NGINX webserver that serves a simple page containing its hostname, IP address and port as wells as the request URI and the local time of the webserver.
 
