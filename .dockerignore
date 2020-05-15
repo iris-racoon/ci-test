@@ -2,4 +2,5 @@
 .dockerignore
 .drone.yml
 README.md
+.travis.yml
 
