@@ -1,0 +1,11 @@
+---
+kind: pipeline
+type: docker
+name: main-dev
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    repo: irinapro/nginx-hello
+    tag: drone-latest
