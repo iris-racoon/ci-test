@@ -9,7 +9,10 @@ steps:
   settings:
     repo: irinapro/nginx-hello
     tag: drone-latest
-
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
 trigger:
   branch:
     - drone-ci
