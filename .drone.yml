@@ -9,3 +9,8 @@ steps:
   settings:
     repo: irinapro/nginx-hello
     tag: drone-latest
+
+trigger:
+  branch:
+    - drone-ci
+
