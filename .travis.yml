@@ -11,9 +11,9 @@ install:
   - pip3 install ansible
 
 script:
-  - docker build -t irinapro/nginx-hello:travis-ci-latest .
+  - docker build -t "$IMAGE" .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push irinapro/nginx-hello:travis-ci-latest
+  - docker push "$IMAGE"
   - echo -n "$SSH_KEY" | base64 -d >> /tmp/private_key
   - ansible-playbook -u $ANSIBLE_USER -i ansible/production ansible/site.yml -vvv --private-key /tmp/private_key
 on:
