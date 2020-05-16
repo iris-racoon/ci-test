@@ -8,16 +8,11 @@ blocks:
   - name: Build
     task:
       jobs:
-        - name: docker build
+        - name: docker build and push
           commands:
             - checkout
             - 'docker build -t irinapro/nginx-hello:semaphore-latest .'
-  - name: 'Block #2'
-    task:
-      secrets:
-        - name: docker_creds
-      jobs:
-        - name: Docker push
-          commands:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - 'docker push irinapro/nginx-hello:semaphore-latest'
+      secrets:
+        - name: docker_creds
