@@ -11,4 +11,13 @@ blocks:
         - name: docker build
           commands:
             - checkout
-            - 'docker build -t irinapro/nginx-hello:drone-latest .'
+            - 'docker build -t irinapro/nginx-hello:semaphore-latest .'
+  - name: 'Block #2'
+    task:
+      secrets:
+        - name: docker_creds
+      jobs:
+        - name: Docker push
+          commands:
+            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            - 'docker push irinapro/nginx-hello:semaphore-latest'
