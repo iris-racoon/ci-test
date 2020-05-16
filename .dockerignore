@@ -2,3 +2,4 @@
 .dockerignore
 .drone.yml
 README.md
+ansible

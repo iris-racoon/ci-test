@@ -1,14 +1,16 @@
 ---
 kind: pipeline
 type: docker
-name: main-dev
+name: build
 
 steps:
 - name: docker
   image: plugins/docker
   settings:
-    repo: irinapro/nginx-hello
-    tag: drone-latest
+    repo: 
+      from_secret: repo
+    tag:
+      from_secret: tag
     username:
       from_secret: docker_username
     password:
@@ -17,4 +19,28 @@ steps:
 trigger:
   branch:
     - drone-ci
+---
+kind: pipeline
+name: deploy
+
+steps:
+- name: check ansible syntax
+  image: plugins/ansible
+  environment:
+    image:
+      from_secret: repo:tag
+  settings:
+    playbook: ansible/site.yml
+    inventory: ansible/production
+    syntax_check: true
+- name: apply ansible playbook
+  image: plugins/ansible
+  environment:
+    image:
+      from_secret: repo:tag
+  settings:
+    playbook: ansible/site.yml
+    inventory: ansible/production
+    private_key: 
+      from_secret: id_rsa
 

@@ -1,0 +1,9 @@
+- hosts: gcp_ec2_instance
+  become: yes
+  vars: 
+    image: "{{ lookup('env', 'image') }}"
+    ansible_python_interpreter: "/usr/bin/python3"
+  roles:
+    - docker
+
+

@@ -1,0 +1,10 @@
+- name: Re-create a nginx container
+  docker_container:
+    name: nginx
+    image: "{{ image }}"
+    state: present
+    recreate: yes
+    restart: yes
+    ports:
+      - "8081:80"
+
