@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/iris-racoon/droneci-test.svg?branch=travis-ci)](https://travis-ci.org/iris-racoon/droneci-test)
+
 # NGINX webserver that serves a simple page containing its hostname, IP address and port as wells as the request URI and the local time of the webserver.
 
 The images are uploaded to Docker Hub -- https://hub.docker.com/r/nginxdemos/hello/.
