@@ -26,9 +26,6 @@ name: deploy
 steps:
 - name: check ansible syntax
   image: plugins/ansible
-  environment:
-    image:
-      from_secret: repo:tag
   settings:
     playbook: ansible/site.yml
     inventory: ansible/production
@@ -37,7 +34,7 @@ steps:
   image: plugins/ansible
   environment:
     image:
-      from_secret: repo:tag
+      from_secret: image
   settings:
     playbook: ansible/site.yml
     inventory: ansible/production
