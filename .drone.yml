@@ -45,4 +45,5 @@ steps:
       from_secret: ansible_user
     private_key: 
       from_secret: id_rsa
+    verbose: 2
 
