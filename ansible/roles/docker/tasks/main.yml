@@ -1,0 +1,10 @@
+- name: Restart a container
+  docker_container:
+    name: nginx
+    image: "{{ image }}"
+    state: started
+    pull: yes
+    recreate: yes
+    ports:
+     - "8081:80"
+
