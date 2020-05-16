@@ -41,6 +41,8 @@ steps:
   settings:
     playbook: ansible/site.yml
     inventory: ansible/production
+    become_user: 
+      from_secret: ansible_user
     private_key: 
       from_secret: id_rsa
 
