@@ -1,7 +1,7 @@
 - name: Restart a container
   docker_container:
     name: nginx
-    image: {{ image }}
+    image: "{{ image }}"
     state: started
     pull: yes
     recreate: yes
