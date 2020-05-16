@@ -16,3 +16,18 @@ blocks:
             - 'docker push irinapro/nginx-hello:semaphore-latest'
       secrets:
         - name: docker_creds
+  - name: Deploy
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
+        containers:
+          - name: main
+            image: 'semaphoreci/ubuntu:18.04'
+      jobs:
+        - name: Run ansible playbook
+          commands:
+            - apt-get update -qq
+            - sudo apt-get -y install python3 python3-pip python3-setuptools
+            - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u $ANSIBLE_USER -i ansible/production ansib    le/site.yml -vvv --private-key /tmp/private_key
