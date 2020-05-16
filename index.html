@@ -32,6 +32,10 @@ img {
     margin: 36px auto 36px auto;
     display:block;
 }
+img.smaller {
+    width: 42px;
+    height: 42px;
+}
 div.smaller p span {
     color: #3D5266;
 }
@@ -84,8 +88,7 @@ function changeCookie() {
 <p class="smaller"><span>Date:</span> <span>server_date</span></p>
 <p class="smaller"><span>URI:</span> <span>server_url</span></p>
 <p class="smaller"><span>Deployed by:</span> <span style="color:blue">DroneCi</span></p>
-<img src="https://avatars3.githubusercontent.com/u/2181346?s=280&v=4" width="42" height="42"> 
-
+<img class=smaller src="https://avatars3.githubusercontent.com/u/2181346?s=280&v=4">
 </div>
 <div class="check"><input type="checkbox" id="check" onchange="changeCookie()"> Auto Refresh</div>
     <div id="footer">
