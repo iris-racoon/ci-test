@@ -4,7 +4,7 @@ type: docker
 name: build
 
 steps:
-- name: docker
+- name: build and push image
   image: plugins/docker
   settings:
     repo: 
