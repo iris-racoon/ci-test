@@ -7,9 +7,12 @@ before_install:
 install:
   - pip3 install ansible
 
+
+before_script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+
 script:
   - docker build -t "$IMAGE" .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push "$IMAGE"
   - echo -n "$SSH_KEY" | base64 -d >> /tmp/private_key && chmod 600 /tmp/private_key
   - echo "$IMAGE"
