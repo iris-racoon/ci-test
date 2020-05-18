@@ -11,9 +11,9 @@ blocks:
         - name: docker build and push
           commands:
             - checkout
-            - 'docker build -t irinapro/nginx-hello:semaphore-latest .'
-            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            - 'docker push irinapro/nginx-hello:semaphore-latest'
+            - docker build -t "$IMAGE" .
+            - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+            - docker push "$IMAGE"
       secrets:
         - name: docker_creds
   - name: Deploy
