@@ -12,10 +12,12 @@ blocks:
           commands:
             - checkout
             - docker build -t "$IMAGE" .
-            - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
             - docker push "$IMAGE"
       secrets:
         - name: docker_creds
+      prologue:
+        commands:
+          - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - name: Deploy
     task:
       agent:
