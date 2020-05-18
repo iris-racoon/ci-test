@@ -4,7 +4,7 @@
     image: "{{ image }}"
     state: started
     pull: yes
-    restart: yes
+    recreate: yes
     ports:
      - "8081:80"
 
